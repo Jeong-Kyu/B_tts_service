@@ -6,18 +6,18 @@
 * 핵심기술내용 : GPT, Bert Pretrain model, Azure TTS service
   
 * 코드구성
-  app.py : flask를 이용한 페이지 생성 및 작동 << 실행파일
-  bertmodel.py : 성격, 감정 분석에 활용하는 bert 사전학습모델
-  config.py : api 및 db key 입력 << 사전입력필요
-  database.py : Mongodb 연결 및 함수 정리
-  gptcontrol.py : chatgpt연결 및 프롬프트 입력 작업
-  main.py : 내부 프로세스 연결 작동
-  titlecheck.py : e-book 형태에서 책정보 추출
-  ttstransform.py : Azure TTS service 연결 및 음원 추출
-  epubfile : e-book 업로드 파일 저장소
-  result : 각 모델 결과 저장소
-  static : 음원, 이미지 등 고객 제공 내용 저장소
-  templates : 웹 구성 저장소
+  * app.py : flask를 이용한 페이지 생성 및 작동 << 실행파일
+  * bertmodel.py : 성격, 감정 분석에 활용하는 bert 사전학습모델
+  * config.py : api 및 db key 입력 << 사전입력필요
+  * database.py : Mongodb 연결 및 함수 정리
+  * gptcontrol.py : chatgpt연결 및 프롬프트 입력 작업
+  * main.py : 내부 프로세스 연결 작동
+  * titlecheck.py : e-book 형태에서 책정보 추출
+  * ttstransform.py : Azure TTS service 연결 및 음원 추출
+  * epubfile : e-book 업로드 파일 저장소
+  * result : 각 모델 결과 저장소
+  * static : 음원, 이미지 등 고객 제공 내용 저장소
+  * templates : 웹 구성 저장소
 
 * 프로세스 요약
   1. e-book 데이터 업로드
