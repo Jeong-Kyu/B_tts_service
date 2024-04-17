@@ -1,0 +1,327 @@
+*{
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+
+main section {
+    padding: 10px 0;
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient((rgba(0,0,0,0,0.8), rgba(0,0,0,0,0.8)),url(image/room.jpg));
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container .header{
+    width: 80%;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .header h1 a{
+    text-decoration: none;
+    color: #6D9BBC;
+    font-family: abster;
+}
+
+.container .nav ul{
+    height: auto;
+    width: auto;
+    text-align: center;
+    top: 10%;
+}
+
+.container .nav ul li{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.container .nav ul li a{
+    text-decoration: none;
+    color: #6D9BBC;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.container .nav ul li a:hover{
+    color: #113434;
+}
+
+.container .hero{
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    background-color: #6D9BBC;
+    color: whitesmoke;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container .hero h2{
+    font-size:  40px;
+    margin-top: 10%;
+    margin-bottom:  20px;
+    background-color: #6D9BBC;
+}
+
+.container .hero strong{
+    color: #113434;
+    font-size: 21px;
+    font-weight: 1500;
+    background-color: #6D9BBC;
+}
+
+.container .hero div p{
+    align-items: first baseline;
+    font-size: 20px;
+    margin: 30px;
+    background-color: #6D9BBC;
+}
+
+.container .hero a{
+    background: none;
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+    text-decoration-line: none;
+    padding-top: 5%;
+    padding: 5px 15px;
+    border-radius: 20px;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container .hero a:hover{
+    background-color: #113434;
+}
+
+.inner_content{
+    background-color: #6D9BBC;
+}
+
+.hr{
+    height: 2px;
+}
+
+#section2{
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header2{
+    background-color: whitesmoke;
+    height: 80px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #6D9BBC;
+}
+
+
+#book_list{
+    background-color: #6D9BBC;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#book_list li{
+    width: 150px;
+    font-size: 10px;    
+    margin-right: 5px;
+    border-radius: 10px;
+    justify-content: center;
+    background-color: #6D9BBC;
+    border:1px solid whitesmoke;
+    align-items: center; 
+    text-align: center;
+}
+
+#book_list li img{
+    margin: 10%;
+    display: block;
+    width: 120px;
+    height: 170px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+#book_list li button{
+    font-family: "Noto Sans KR", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    
+    background-color: #6D9BBC;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#book_list li button:hover {
+    color: whitesmoke;
+    /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 20px 0 rgba(0,0,0,0.19); */
+}
+
+.bk_num{
+    text-align: center;
+    padding-bottom: 10px;
+    padding: 5px;
+    background-color: #6D9BBC;
+}
+
+.button_box{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #6D9BBC;
+}
+
+.button_box button{
+    background: none;
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    outline: none;
+    cursor: pointer;
+    translate: all 4px;  
+
+}
+.button_box button:hover{
+    background-color: #113434;
+}
+
+#footer{
+    background-color: whitesmoke;
+    border-top: 1px solid #8d9299;
+	margin: auto;
+    height: 72px;
+    padding-bottom: 0%;
+    color: #8d9299;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5px;
+}
+
+#EbookuploadBtn{
+    margin-left: 2%;
+    margin-right: 2%;
+    background: none;
+    font-size: 10px;    
+    float: left;
+    border-radius: 5px;    
+    background-color: #6D9BBC;
+    margin-bottom: 10px;
+}
+
+
+#Ebooksubmit{
+    background-color: #6D9BBC;
+    top: 50%;
+    bottom: 50%;
+    transform: translateY(200%);
+    text-align: center;
+}
+
+
+#SubmitBtn{
+    background: none;
+    border: none;
+    color: whitesmoke;
+    outline: none;
+    cursor: pointer;
+    translate: all 4px;  
+}
+
+#SubmitBtn:hover{
+    color: #113434;
+}
+
+#bk_upload{
+    width: 25%;
+}
+
+#EbookuploadBtn{
+    width: 95%;
+}
+
+form{
+    background-color: #6D9BBC;
+}
+
+#introduce{
+    position:  relative;
+    display: inline-block;
+}
+
+#introduce::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 4px;
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+#introduce.active::after{
+    display : none;
+}
+
+.play_button{
+    align-items: center;
+}
+
+#uplaod_form{
+    display: inline;
+    width: 150px;
+    border: 1px solid #113434;
+    border-style: dashed;
+}
+
+#upload_form div{
+    background-color: #6D9BBC;
+    color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 900;
+    padding-left: 10px;
+}
+
+#upload_form form input{
+    background-color: #6D9BBC;
+    color: #6D9BBC;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px;
+}
+#upload_form form button{
+    padding: 3px;
+    background-color: #6D9BBC;
+    border-radius: 4px;
+    border-color: whitesmoke;
+    color: whitesmoke;
+}
+
+#upload_form form button:hover{
+    background-color: #113434;
+}

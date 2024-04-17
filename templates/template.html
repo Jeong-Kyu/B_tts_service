@@ -1,0 +1,131 @@
+<link rel="shortcut icon" href="#">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/static/css/template.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="/">Main Page</a></li>
+        </ul>
+    </div>
+    <div id="bk_title">{{ bk_title }}</div>
+    <p id="author">Author: {{ author }}</p>
+    <br>
+    <div id="contents_box">
+        {% for chapter in chapters %}
+            <a name="chapter{{ chapter.chapter_num }}"></a> <!-- 각 챕터의 위치를 앵커로 설정 -->
+            <h2 id="chapter_num">Chapter {{ chapter.chapter_num }}</h2>
+            <ul class="content">
+                {% for content in chapter.content_list %}
+                    <li class="line" id="line{{ chapter.chapter_num }}_{{ loop.index }}">{{ content.content }}</li>
+                    <!-- 각 줄에 대한 오디오 컨트롤 추가 -->
+                    <audio id="audio{{ chapter.chapter_num }}_{{ loop.index }}" >
+                        <source src="{{ url_for('download_file', filename=content.audio) }}" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+    <div id="control_box">
+        <button id="play-all-btn">Play</button> <!-- 모든 오디오를 한 번에 처음부터 재생하는 버튼 -->
+        <button id="stop-all-btn">Stop</button> <!-- 모든 오디오를 멈추는 버튼 -->
+        <button id="pause-all-btn">Pause</button> <!-- 전체를 실행하다가 일시정지하는 버튼 -->
+        <button id="replay-all-btn">Replay</button> <!-- 전체를 처음부터 다시 실행하는 버튼 -->
+        <br>
+        <br>
+        <div class="chapter_control">
+            {% for chapter in chapters %}
+                <a href="#chapter{{ chapter.chapter_num }}">Chapter {{ chapter.chapter_num }}</a> <!-- 해당 Chapter의 앵커로 이동 -->
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <!-- <script src="/static/js/The_Great_Gatsby.js"></script> 외부 JavaScript 파일 추가 -->
+    <!-- JavaScript Section -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audios = document.querySelectorAll('audio');
+            var lines = document.querySelectorAll('.line');
+            var currentIndex = 0;
+            var currentLineIndex = -1;
+            var paused = false;
+
+            function playNextAudio(startIndex) {
+                if (startIndex < audios.length) {
+                    if (!paused) {
+                        audios[startIndex].play();
+                        currentIndex = startIndex;
+                        audios[startIndex].addEventListener('ended', function() {
+                            playNextAudio(startIndex + 1);
+                        });
+                        updateBoldLine(startIndex);
+                    }
+                }
+            }
+
+            function updateBoldLine(index) {
+                lines.forEach(function(line, i) {
+                    line.style.fontWeight = i === index ? 'bold' : 'normal';
+                });
+            }
+
+            function stopAllAudios() {
+                audios.forEach(function (audio) {
+                    audio.pause();
+                    audio.currentTime = 0; // 정지 후에 처음부터 재생되도록 수정
+                });
+            }
+
+            var playAllButton = document.getElementById('play-all-btn');
+            playAllButton.addEventListener('click', function () {
+                stopAllAudios();
+                currentIndex = 0;
+                paused = false;
+                playNextAudio(currentIndex);
+            });
+
+            var stopAllButton = document.getElementById('stop-all-btn');
+            stopAllButton.addEventListener('click', function () {
+                stopAllAudios();
+                currentIndex = 0; // 정지 후에 처음부터 재생되도록 수정
+                paused = false;
+            });
+
+            var pauseAllButton = document.getElementById('pause-all-btn');
+            pauseAllButton.addEventListener('click', function () {
+                paused = true;
+                audios[currentIndex].pause();
+                // 현재 재생 중인 줄을 기억하여 다시 재생할 준비
+                currentLineIndex = currentIndex;
+            });
+
+            var replayAllButton = document.getElementById('replay-all-btn');
+            replayAllButton.addEventListener('click', function () {
+                paused = false;
+                playNextAudio(currentLineIndex);
+            });
+
+            lines.forEach(function(line, index) {
+                line.addEventListener('click', function() {
+                    var lineId = line.id;
+                    var lineIndex = parseInt(lineId.split('_')[1]) - 1; // 줄의 인덱스 가져오기
+
+                    // 해당 줄부터 오디오 재생
+                    stopAllAudios();
+                    paused = false;
+                    playNextAudio(lineIndex);
+
+                    // 클릭된 줄에 볼드 굵기 적용
+                    updateBoldLine(lineIndex);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

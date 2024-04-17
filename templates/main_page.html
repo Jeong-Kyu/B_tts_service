@@ -1,0 +1,61 @@
+<link rel="shortcut icon" href="#">
+<!DOCTYPE html>
+<html lang="en">
+<head class="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main_page.css') }}">
+</head>
+<body>
+    <main>
+        <section id="section1">
+            <div class="container">
+                <div class="header">
+                    <h1><a href="#">NoReBo</a></h1>
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#">Main</a></li>
+                            <li><a href="#">MyPage</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="hero">
+                    <h2 id = 'introduce'>JUST, Listiening the novel</h2>
+                    <div class="inner_content">
+                        <p>책에 손쉽게 접근하고,<br/>
+                            언제 어디서든 쉽게 들을 수 있는<br/>
+                            당신을 위한 <strong>독서 도우미 서비스</strong></p>
+                    </div>
+                    <a href="#section2">Go to the library</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id = "section2">
+            <h4 class="header2">Library</h4>
+            <div id="book_list">
+                {% for name in novellist %}
+                <li id="noveldetail">
+                    <img class="novel_img" src="/static/image/{{name}}.png" alt="{{name}}"/>
+                    <h3 class="bk_num">{{name}}</h3>
+                    <button class="play_button" onclick="window.location.href='{{ url_for('index', novelname=name) }}'">START</button>
+                </li>
+                {% endfor %}
+            </div>
+            <ui id="upload_form">
+                <div>Add a New Name from File</div>
+                <form action="/add_name" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file">
+                    <button type="submit">Add</button>
+                </form>
+            </ui>
+        </sec>
+
+    <div id="footer"><small>자연어처리 16회차. team_NoReBo</small></div>
+    </main>        
+</body>
+
+</html>
+
+<style></style>
